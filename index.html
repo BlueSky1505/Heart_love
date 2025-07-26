@@ -8,20 +8,38 @@
 </head>
 <body>
   <canvas id="heartCanvas"></canvas>
+
   <div class="marquee-container">
-  <div class="marquee-text">Như Ý 💖 Như Ý 💖 Như Ý 💖</div>
-</div>
-<audio id="bg-music" src="DuChoTanThe-Erik-36691650.mp3" preload="auto"></audio>
+    <div class="marquee-text">Như Ý 💖 Như Ý 💖 Như Ý 💖</div>
+  </div>
+
+  <!-- Nút bắt đầu -->
+  <button id="start-btn">💖 Bấm để bắt đầu 💖</button>
+
+  <!-- Nhạc nền -->
+  <audio id="bg-music" src="DuChoTanThe-Erik-36691650.mp3" preload="auto"></audio>
+
+  <!-- Script hiệu ứng -->
   <script src="script.js"></script>
-<script>
-  const audio = document.getElementById("bg-music");
-  const tryPlay = () => {
-    audio.play().catch(() => {});
-    window.removeEventListener("click", tryPlay);
-    window.removeEventListener("touchstart", tryPlay);
-  };
-  window.addEventListener("click", tryPlay);
-  window.addEventListener("touchstart", tryPlay);
-</script>
+
+  <!-- Script điều khiển -->
+  <script>
+    const audio = document.getElementById("bg-music");
+    const startBtn = document.getElementById("start-btn");
+
+    startBtn.addEventListener("click", () => {
+      audio.play().catch((e) => {
+        console.log("Không thể phát nhạc: ", e);
+      });
+
+      startBtn.style.display = "none";
+
+      // Gọi hiệu ứng tim nếu có
+      if (typeof startHeartEffect === "function") {
+        startHeartEffect();
+      }
+    });
+  </script>
 </body>
 </html>
+
