@@ -11,6 +11,17 @@
   <div class="marquee-container">
   <div class="marquee-text">Như Ý 💖 Như Ý 💖 Như Ý 💖</div>
 </div>
+<audio id="bg-music" src="DuChoTanThe-Erik-36691650.mp3" preload="auto"></audio>
   <script src="script.js"></script>
+<script>
+  const audio = document.getElementById("bg-music");
+  const tryPlay = () => {
+    audio.play().catch(() => {});
+    window.removeEventListener("click", tryPlay);
+    window.removeEventListener("touchstart", tryPlay);
+  };
+  window.addEventListener("click", tryPlay);
+  window.addEventListener("touchstart", tryPlay);
+</script>
 </body>
 </html>
