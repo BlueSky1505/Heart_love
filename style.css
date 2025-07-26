@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0a0a13;
+}
+
+canvas {
+  display: block;
+}
+.floating-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff99cc;
+  text-shadow: 0 0 10px #fff0f5, 0 0 20px #ff99cc, 0 0 30px #ff66cc;
+  animation: floatText 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes floatText {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -53%) scale(1.05);
+    opacity: 0.85;
+  }
+}
+.marquee-container {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: #ff99cc;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
